@@ -1,0 +1,37 @@
+Script to insert the tables in the R file:
+
+#install.packages("readr") #for importing csv tables
+
+#to import the csv data table of CAT enzyme
+library(readr)#open the package of the library to open csv
+CATcellina <- read_delim("CATcellina.csv", 
+                         "\t", escape_double = FALSE, trim_ws = TRUE)
+View(CATcellina)
+
+library(readr)
+CATleccino <- read_delim("CATleccino.csv", 
+                         "\t", escape_double = FALSE, trim_ws = TRUE)
+View(CATleccino)
+
+# to imort the csv data tables of SOD enzyme
+library(readr)
+SODleccino <- read_delim("SODleccino.csv", 
+                         "\t", escape_double = FALSE, trim_ws = TRUE)
+View(SODleccino)
+
+library(readr)
+SODcellina <- read_delim("SODcellina.csv", 
+                         "\t", escape_double = FALSE, trim_ws = TRUE)
+View(SODcellina)
+
+# to import the csv data tables of APX enzyme
+
+library(readr)
+APXcellina <- read_delim("APXcellina.csv", 
+                         "\t", escape_double = FALSE, trim_ws = TRUE)
+View(APXcellina)
+
+library(readr)
+APXleccino <- read_delim("APXleccino.csv", 
+                         "\t", escape_double = FALSE, trim_ws = TRUE)
+View(APXleccino)

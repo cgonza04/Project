@@ -1,0 +1,21 @@
+---
+title: "Project1step"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### 1.a. import all the data in one or more data frames, from links
+
+Frond and root growth rates of L. minor treated by Cu, tree leaf litter extracts or combinations of Cu and the extracts:
+
+```{r}
+Frond_Root_growth <- https://doi.org/10.7717/peerj.9444/supp-1
+```
+
+
+
+### 1.b. explain what each variable means (use the article)
+
