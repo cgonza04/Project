@@ -1,3 +1,5 @@
+#install.packages(readxl)
+
 # Data for growth rates of Frond and Roots in L.minor under 8 treatments. 
 #put Growth rates as GR
 library(readxl)
@@ -9,7 +11,7 @@ View(GR)
 #import Cu concentrations for AG and AN
 library(readxl)
 Cu_AG <- read_excel("0.Data/Raw_Data_Fig_2_Cu_conc.xlsx", 
-                    range = "B10:i26", col_names = FALSE)
+                    range = "B10:i26", col_names = TRUE)
 #Data for Cu accumulation in L.minor treated by Cu, and combinations of Cu and LLE from A. negundo.
 Cu_AN <- read_excel("0.Data/Raw_Data_Fig_2_Cu_conc.xlsx", 
                     sheet = "Cu_µg_gFW_AN", range = "B10:I26")
