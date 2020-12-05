@@ -1,5 +1,8 @@
 #install.packages(readxl)
 
+# !!! Note: "Cu_µg_gFW_AN" often is saved in a strange way, so please check
+#it is written "microgram" with the greek letter (line 20 of this script).
+
 # Data for growth rates of Frond and Roots in L.minor under 8 treatments. 
 #put Growth rates as GR
 library(readxl)
