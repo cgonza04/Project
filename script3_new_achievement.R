@@ -18,6 +18,3 @@ View(Cu)#we have table with the species and only one column of Trt(!!!!)
 library(dplyr)
 Cu6 <- dplyr::union(Cu_AG, Cu_AN)
 Cu6
-
-
-
