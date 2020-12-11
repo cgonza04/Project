@@ -106,3 +106,17 @@ Lipid_2 <- Lipid %>%
   group_by(Trt, Tree_sp) %>% 
   summarise(mean = mean(Fourtyeight))
 View(Lipid_2)
+
+#to add the variable of copper: presence/absence
+Cu3 <- Cu2$Trt > 1  #create a vector true/false: false if Trt == 1 (= control without Copper)
+Cu2$Copper <- Cu3 #create the column Copper and put the vector Cu3 who has True/False
+
+#we can combine both lines (same result as just before):
+#Cu2$Copper <- Cu2$Trt > 1
+
+#Add column for concentration 10 mg/L DOC: Trt == 3 is TRUE
+Cu2$Ten.mg.DOC <- Cu2$Trt == 3
+
+#Add column for concentration 100 mg/L DOC: Trt == 4 is TRUE
+Cu2$Hundred.mg.DOC <- Cu2$Trt == 4
+
