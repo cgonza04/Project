@@ -38,7 +38,7 @@ KrusFG <- agricolae::kruskal(GR2$FrondGR, GR2$Variant)
 boxplot(FrondGR~Variant, data = GR2,
         ylim= c(-0.4,0.3),
         ylab="Frond Growth rate (mm d^-1)", xlab="Treatments", 
-        main = "Effect of Cu and AG LLE on Frond Growth rate"
+        main = "Effect of Cu and AG on Frond Growth rate"
         ,border=c("2","3","4","5","8"))
 legend("topright", legend=c("1: Control", "2: Cu", "3: Cu+10-DOC_AG ", 
                             "4: Cu+100-DOC_AG ", "5: 100-DOC_AG"), cex = 0.8,
@@ -75,7 +75,7 @@ KrusRG <- agricolae::kruskal(GR2$RootGR, GR2$Variant)
 boxplot(RootGR~Variant, data = GR2,
         ylim= c(0,0.9),
         ylab="Root Growth rate (mm d^-1)", xlab="Treatments", 
-        main = "Effect of Cu and AG LLE on Root Growth rate"
+        main = "Effect of Cu and AG on Root Growth rate"
         ,border=c("2","3","4","5","8"))
 legend("topright", legend=c("1: Control", "2: Cu", "3: Cu+10-DOC_AG ", 
                             "4: Cu+100-DOC_AG ", "5: 100-DOC_AG"), cex = 0.8,
@@ -122,8 +122,11 @@ legend("topright", legend=c("1: Control", "2: Cu", "6: Cu+10-DOC_AN ",
 text(x=(1:5),y=c(0.23, -0.2, 0.04, 0.02, 0.22) , c("a","e","c","d","b"))
 
 #Interpretation of plot: 
-#The control had the greater FGR (0.19mm d^-1).
-
+#The control had the greater FGR (0.19mm d^-1). The treatment with 100 mg/L DOC 
+#derived from A. negundo (T8) had the next highest value (0.18mm d^-1). The 
+#treatments with 10 mg/L DOC (T6) and 100 mg/L DOC derived from A. negundo (T7) 
+#bot had negative values, as well as the treatment with 6.4 mg/L of Cu (T2). 
+#The values were -0.003, -0.02 and -0.3 respectively.
 
 ### Root Growth 2
 
@@ -153,8 +156,12 @@ legend("topright", legend=c("1: Control", "2: Cu", "6: Cu+10-DOC_AN ",
 text(x=(1:5),y=c(0.82, 0.04, 0.15, 0.44, 0.57) , c("a","e","d","c","b"))
                         
 #Interpretation of plot:  
-
-
+#The control had the highest RGR (0.72 mm d^-1). The treatment with 100 mg/L DOC 
+#derived from A. negundo (T8) showed the second highest value (0.45 mm d^-1), 
+#followed by the treatment with Cu+ 100 mg/L DOC derived from A. negundo (T7) 
+#(0.34mm d^-1). The treatment with Cu+ 10 mg/L DOC derived from A. negundo (T6)
+#goes next, with a RGR of 0.09mm d^-1. The treatment with 6.4 mg/L of Cu (T2) 
+# showed no RGR whatsoever. 
 
 
 ### Frond Growth 3
@@ -193,7 +200,7 @@ text(x=(1:6),y=c(0.22, -0.2, 0.04, 0.09, 0.05, 0.02) , c("a","e","d","b","c","d"
 #Cu + 100 mg/L DOC derived from A. glutinosa (T4)(0.04mm d^-1). The third highest 
 #was shown in the treatment with Cu + 10 mg/L DOC derived from A. negundo (T6) 
 #The treatments with Cu + 10 mg/L DOC derived from A. glutinosa (T3) and the 
-#one with Cu + 100 mg/L DOC derived from A. negundo were next, with no significant
+#one with Cu + 100 mg/L DOC derived from A. negundo (T7) were next, with no significant
 #differences between them. The treatment with 6.4 mg/L of Cu (T2) showed the lowest
 #value (-0.3mm d^-1)
 
@@ -237,17 +244,4 @@ text(x=(1:6),y=c(0.82, 0.04, 0.04, 0.22, 0.15, 0.43) ,
 #respectively. The treatment with with 10 mg/L DOC derived from 
 #A. glutinosa (T3) and the treatment with 6.4 mg/L of Cu (T2) showed no RGR.
 
-
-
-boxplot(RootGR~Variant, data = GR5,
-        ylim= c(0,0.9),
-        ylab="Root Growth rate (mm d^-1)", xlab="Treatments", 
-        main = "Effect of AG and AN (10 and 100 mg/L) 
-in the presence of Cu on Root Growth rate"
-        ,border=c(2:7))
-legend("topright", legend=c("1: Control", "2: Cu", "3: Cu+10-DOC_AG", 
-"4: Cu+100-DOC_AG", "6: Cu+10-DOC_AN", "7: Cu+100-DOC_AN"), cex = 0.8,
-       bty = "n", inset=c(0.03,0.03))
-text(x=(1:6),y=c(0.82, 0.04, 0.04, 0.22, 0.15, 0.43) , 
-     c("a","e","e","c","d","b"))
 
