@@ -30,11 +30,17 @@ Krus_Cu_an
 boxplot(Fourtyeight~Trt, data = Cu_an,
         ylim = c(0,460),
         ylab="Cu concentration in µg g^(−1)FW",
-        xlab="Treatment", 
-    main = "Effect on Lemna minor after treatments with Copper 
-  and Acer negundo extracts on Cu concentration")
-text(x=(1:4) ,y = 425, c("d","a","c","b"), pos = 3)
-legend(Trt)
+        xlab="Treatments", 
+    main = "Copper concentration in Lemna minor48h after treatments 
+    with Copper and Acer negundo extracts",
+   border=c("2","3","6","7","darkgreen"))
+legend(x = 0.4, y = 330, 
+       legend = c("Legend:","1: Control", "2: Cu", "3: Cu+10-DOC_AN ", 
+                  "4: Cu+100-DOC_AN "), 
+       cex = 0.8)
+text(x=(1:4) , c("d","a","c","b"), pos = 3, y = c(30,415,210,390))
+
+
 
 #description of the plot:
 #1. Control: L. minor absorbed almost no Cu
@@ -82,10 +88,15 @@ Krus_Cu_ag
 
 boxplot(Fourtyeight~Trt, data = Cu_ag,
         ylim = c(0,460),
-        ylab="Cu concentration with Alnus glutinosa after 48h", xlab="Treatment", 
-        main = "Effect of treatments with Alnus glutinosa
-on Cu concentration in Lemna minor")
-text(x=(1:4) ,y = 425, c("c","a","b","a"), pos = 3)
+        ylab="Cu concentration in µg g^(−1)FW", xlab="Treatments", 
+        main = "Copper concentration in Lemna minor 48h after treatments 
+        with Copper and Alnus glutinosa extracts",
+border=c("2","3","6","7","darkgreen"))
+legend(x = 0.4, y = 330, 
+       legend = c("Legend:","1: Control", "2: Cu", "3: Cu+10-DOC_AG ", 
+                  "4: Cu+100-DOC_AG "), 
+       cex = 0.8)
+text(x=(1:4) , c("c","a","b","a"), pos = 3, y = c(30,410,260,420))
 #♣treatments 2 and 4 are in the same group: they are not significantly different
 
 #description and interpretation are the same as Acer negundo
@@ -110,28 +121,4 @@ text(x=(1:4) ,y = 425, c("c","a","b","a"), pos = 3)
 #(it seems to mitigate the effect of Copper pollution)
 #When they add 100 mg leaf extract of Alnus glutinosa, L. minor absorbs as 
 #much as when only Cu.
-
-
-
-#Dunnett test EXAMPLE from https://www.rdocumentation.org/packages/DescTools/versions/0.99.38/topics/DunnettTest
-x <- Cu_an$Trt == 1 # control
-y <- c(3.8, 2.7, 4.0, 2.4)      # with obstructive airway disease
-z <- c(2.8, 3.4, 3.7, 2.2, 2.0) # with asbestosis
-
-DunnettTest(list(x, y, z))
-
-## Equivalently,
-x <- c(x, y, z)
-g <- factor(rep(1:3, c(5, 4, 5)),
-            labels = c("Normal subjects",
-                       "Subjects with obstructive airway disease",
-                       "Subjects with asbestosis"))
-
-DunnettTest(x, g)
-
-
-
-
-
-
 

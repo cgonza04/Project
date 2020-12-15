@@ -119,7 +119,3 @@ text( c("c","b","b","a", "d"),x=(1:5) ,y = c(130,170,170,190,110))
 #distribution, with Acer negundo being slightly more stressful to Lemna minor 
 #than Alnus glutinosa.
 
-
-
-
-
