@@ -1,0 +1,170 @@
+---
+title: "Results"
+author: "Carpentero, Da Cruz Albertazzi, Gonzalez--Dehennault, Jyakhwa"
+date: "2020.12.15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 
+
+```{r}
+knitr::opts_chunk$set(echo = FALSE,
+                      fig.path = "Results/", #to save the figures
+                      dev = "png",#save in png
+                      dpi = 100)
+```
+
+```{r}
+#install.packages("agricolae")
+#install.packages("readxl")
+```
+ 
+## Cu concentration
+
+1. For _Acer negundo_ leaf extracts
+
+### Testing the normality
+
+```{r, echo=FALSE}
+library(readxl)
+Cu_an <- read_excel("0.Data/Raw_Data_Fig_2_Cu_conc.xlsx", 
+                    sheet = "Cu_µg_gFW_AN", range = "B10:I26")
+
+# Change colname of one column so we give the same name to Cu_µg_gFW_AN and 
+#Cu_µg_gFW_AG in both tables
+colnames(Cu_AG)[colnames(Cu_AG) == "Cu_µg_gFW_AG"] <- "Trt"
+colnames(Cu_AN)[colnames(Cu_AN) == "Cu_µg_gFW_AN"] <- "Trt"
+#Trt is for the Treatment
+
+AN <- "AN"#create vector with specie "AN"
+AG <- "AG"#create vector with specie "AG"
+Cu_AN <- dplyr::mutate(Cu_AN, Tree_sp = AN)
+#to add the column for the tree specie AN in the table of AN
+Cu_AG <- dplyr::mutate(Cu_AG, Tree_sp = AG)
+#to add the column for the tree specie AG in the table of AG
+
+#install.packages("tidyr")
+library(tidyr)
+Cu <- dplyr::bind_rows(Cu_AG, Cu_AN)
+#we have table with the species and only one column of Trt
+
+#(we can get the same table with this:)
+#library(dplyr)
+#Cu6 <- dplyr::union(Cu_AG, Cu_AN)
+#Cu6
+
+#rename the column 48h as Fourtyeight because having a number in the name 
+#always gives error message
+colnames(Cu)[colnames(Cu) == "48h"] <- "Fourtyeight"
+colnames(Cu)[colnames(Cu) == "0.75h"] <- "Zero.seventyfive"
+colnames(Cu)[colnames(Cu) == "1.5h"] <- "One.five"
+colnames(Cu)[colnames(Cu) == "3h"] <- "Three"
+colnames(Cu)[colnames(Cu) == "6h"] <- "Six"
+colnames(Cu)[colnames(Cu) == "12h"] <- "Twelve"
+colnames(Cu)[colnames(Cu) == "24h"] <- "Twentyfour"
+
+#make the table will the means of each treatment so we have only 1 row per 
+#treatment per species  (so 6 rows)
+library(dplyr)
+Cu2 <- Cu %>% 
+  group_by(Trt, Tree_sp) %>% 
+  summarise(mean = mean(Fourtyeight))
+
+colnames(Cu2)[colnames(Cu2) == "mean"] <- "meanFourtyeight"
+
+```
+
+
+```{r, fig.cap=caption}
+caption <-"**Figure 1. Cu concentration depending on the Treatment.** "
+plot(Cu_an$Trt,Cu_an$Fourtyeight, xlab="Treatment",ylab="Cu concentration")
+title(main = "Cu concentration depending on the Treatment")
+
+```
+
+
+
+
+
+##QQplot for _Acer negundo_
+
+```{r}
+#Fourtyeight in the name
+# Build the linear model
+model_Cu_an  <- lm(Fourtyeight~Trt, data = Cu_an)
+
+# Create a QQ plot of residuals
+qqnorm(model_Cu_an[["residuals"]], main = "QQ plot for model_Cu_an")
+qqline(model_Cu_an[["residuals"]])
+
+```
+
+
+
+```{r, fig.cap=caption}
+caption <-"**Figure 1. QQ plot and linear model.** This gives us a vision of whether the data follows a linear model or not"
+```
+
+### Kruskall-Wallis groups and plot
+
+```{r}
+library(agricolae)
+Krus_Cu_an<- agricolae::kruskal(Cu_an$Fourtyeight, Cu_an$Trt)
+Krus_Cu_an
+# we get letters for the groups: the four treatments have each a different 
+#group (d,a,c,b)
+
+#add the group letters to the boxplot
+boxplot(Fourtyeight~Trt, data = Cu_an,
+        ylim = c(0,460),
+        ylab="Cu concentration in µg g^(−1)FW",
+        xlab="Treatments", 
+    main = "Copper concentration in Lemna minor48h after treatments 
+    with Copper and Acer negundo extracts",
+   border=c("2","3","6","7","darkgreen"))
+legend(x = 0.4, y = 330, 
+       legend = c("Legend:","1: Control", "2: Cu", "3: Cu+10-DOC_AN ", 
+                  "4: Cu+100-DOC_AN "), 
+       cex = 0.8)
+text(x=(1:4) , c("d","a","c","b"), pos = 3, y = c(30,415,210,390))
+
+```
+
+```{r, fig.cap=caption}
+caption <-"**Figure 1. QQ plot and linear model.** This gives us a vision of whether the data follows a linear model or not."
+plot(Cu_AN$,InsectSprays$count, xlab="Spray",ylab="Count")
+title(main = "Number of insects depending on the spray")
+
+```
+
+
+
+1. For _Alnus glutinosa_ leaf extracts
+
+### Testing the normality
+
+```{r}
+#Data for Cu accumulation in L.minor treated by Cu, and combinations of Cu and 
+#LLE from A. glutinosa.
+#import Cu concentrations for AG and AN
+library(readxl)
+Cu_AG <- read_excel("0.Data/Raw_Data_Fig_2_Cu_conc.xlsx", 
+                    range = "B10:i26", col_names = TRUE)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
