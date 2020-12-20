@@ -1,0 +1,136 @@
+---
+title: Modifying Effects of Leaf Litter Extracts from Invasive Versus Native Tree
+  Species on Copper-Induced Responses in _Lemna minor_
+output: html_document
+date: 2020.12.16
+---
+
+
+
+Group members:
+
+* Carpentero Elizabeth  
+* da Cruz Albertazzi Mariana   
+* Gonzalez--Dehennault Charlotte    
+* Jyakho Sunmoon 
+
+
+```{r}
+
+```
+
+
+
+###  **1. Introduction**
+
+
+Excess Cu can induce negative effects including the production of reactive oxygen species (ROS) via Fenton reaction (Halliwell & Gutteridge, 1984). ROS, in turn, can oxidize lipids (De Vos et al., 1991), disrupt protein functions due to binding to sulphydryl groups (Weckx & Clijsters, 1996) and inhibit photosynthesis and electron transport (Thomas et al., 2013; Xia & Tian, 2009). Plant growth can be inhibited as a result.
+
+
+Excess of Cu in plants can cause oxidative stress, and therefore change antioxidative pathways. The solubility, adsorption, transport and toxicity of metals in natural surface waters are strongly influenced by complexation with dissolved organic matter (DOM).
+
+
+Moreover, it has been suggested that black alder Alnus glutinosa, native in Lithuania species, and boxelder maple Acer negundo, invasive in Lithuania species, impacted the same aquatic organisms in different ways (Krevš et al., 2013; Manusadžianas et al., 2014).
+
+
+###  **2. Objectives and Hypothesis**
+
+
+**Objectives**
+
+
+Studying the effect of natural organic matter (leaf litter extracts) derived from native tree species _Alnus glutinosa_ and invasive tree species Lithuania _Acer negundo_ on copper toxicity in _Lemna minor_ focusing on time-dependent alternations of:
+
+
+(1) Cu binding to DOM in media and accumulation in the plant,
+
+
+(2) morphophysiological parameters (frond area and root length) and;
+
+
+(3) oxidative stress characteristics like liquid peroxidation, hydrogen peroxide content .
+
+
+**Hypothesis**
+
+
+*_H0:_* Frond and root growth, accumulation of Cu, concentration of hydrogen peroxide and lipid peroxidation expressed as MDA concentration in _L. minor_ will be equal in treatments involving LLE of _Alnus glutinosa_ than in treatments involving LLE _Acer negundo_.
+
+
+*_H1:_* Frond and root growth, accumulation of Cu, concentration of hydrogen peroxide and lipid peroxidation expressed as MDA concentration in _L. minor_ will be different in treatments involving LLE of _Alnus glutinosa_ than in treatments involving LLE _Acer negundo_.
+
+
+
+###  **3. Methods**
+
+
+The experimental design comprised control (growth medium) and four treatments (growth medium supplemented with Cu (100µM CuSO4 or 6.4 mg Cu/L); 100 mg/L DOC; Cu + 10 mg/L DOC and Cu + 100 mg/L DOC.
+Statistical analysis:
+
+
+For Growth rate:
+
+
+The growth rate per day was taken into consideration as morphophysiological parameters. There were 8 independent variants ("1: Control", "2: Cu", "3: Cu+10-DOC_AG ", 4: Cu+100-DOC_AG ", "5: 100-DOC_AG", "6: Cu+10-DOC_AN ", "7: Cu+100-DOC_AN ", "8: 100-DOC_AN") for growth rate of frond and root. Three different sets of variants were taken into consideration for data analysis to better visualize the effects induced by Copper only, DOM only from  A. negundo and A. glutinosa, mixture of copper and different concentrations of A. negundo and A. glutinosa . We built a linear model to test the normality of our data. We used QQ plot and Shapiro-Wilk normality test to find if the data were normally distributed or not. Because the obtained P-value of frond growth rate and root growth were both lower than 0.05 in every case, we performed a non-parametric test. Kruskal wallis test was used to test the difference between treatments. Box plot was used to interpret our results.
+
+
+For Copper accumulation:
+
+
+For Copper accumulation, we took the measurement of 48h because the values of copper concentration at 48h seem to reach a plateau. The independent variables for Cu accumulation are: 1. Control 2. Cu only 3. (Cu+10-DOC_AG) or (Cu+10-DOC_AN) 4. (Cu+100-DOC_AG) or (Cu+100-DOC_AN). We built a linear model to test the normality of our data. We used QQ plot and Shapiro-Wilk normality test to find if the data were normally distributed or not. Because the obtained P-value of Copper accumulation was lower than 0.05, we performed a non-parametric test. Kruskal wallis test was used to test the difference between treatments. Box plot was used to interpret the results.
+
+
+For H2O2 concentration and Lipids concentration:
+
+
+The independent variables for Cu accumulation are: 1. Control 2. Cu only 3. (Cu+10-DOC_AG) or (Cu+10-DOC_AN) 4. (Cu+100-DOC_AG) or (Cu+100-DOC_AN) 5. (100-DOC_AG) or(100-DOC_AN). For H2O2 concentration and Lipids concentration, we took the measurement of 48h because the values of copper concentration at 48h seem to reach a plateau. We built a linear model to test the normality of our data. We used QQ plot and Shapiro-Wilk normality test to find if the data were normally distributed or not. Because the obtained P-value of both H2O2 concentration and lipid concentration was lower than 0.05, we performed a non-parametric test. Kruskal wallis test was used to test the difference between treatments. Box plot was used to interpret the results.
+ 
+ 
+ 
+
+
+
+###  **4. Results**
+
+Please see the file named _Result_graphs.html_.
+
+###  **5. Discussion**
+
+
+Results showed that higher concentrations of copper in Cu alone treatment were absorbed by _L.minor_. Also, higher accumulation rates of Cu were recovered on the DOM  with 100mg/L concentration of both AN and AG mixed with Cu. While, both treatments having Cu+10mg/L of DOM’s showed low Cu accumulation rate than of Cu and Cu+100mg/L DOM’s treatments.
+
+
+Cu containing treatments: Cu; Cu+10DOC AN; Cu+100DOC AN causes significant impact on hydrogen peroxidation as compared to the control.  DOM of _A.negundo_ alone has no significant different as of with control. 
+The results for _A.glutinusa_ showed quite same distribution as A. negundo  But _A. negundo_ causes slightly more stress to _L. Minor_ than _Alnus glutinusa_. This imply that the leaf litter extracts alone of both species does not give significant threat on H202 peroxidation level in L.minor.
+
+
+Lipid peroxidation is a sign of stress, it is oxidative damage that affects cellular membranes, lipoproteins, and other molecules that contain lipids in conditions with oxidative stress.
+The results shown that putting pure Cu increase the MDA concentration. In both plant species,  increase in concentration of DOM in the mixture of Cu increases the lipid peroxidation. Adding only leaf extracts doesn't make a significant difference from the control.
+
+This imply that the leaf litter extracts alone of both species does not give significant threat on H202 peroxidation and lipid peroxidation level in L.minor.
+
+
+
+
+###  **6. Conclusion**
+
+
+Our sets of data do not follow any model, so we cannot run the initial tests we wanted. We could still obtain groups with Kruskall-Wallis test to see the significantly different groups and make boxplots.
+
+We also would have needed more data with treatments of only the trees for all parameters to conduct more tests. This shows us the importance of designing very carefully the experiments and making control variables for everything so we can compare them all.
+
+
+
+
+
+
+```{r}
+
+```
+
+
+
+```{r }
+
+```
+
