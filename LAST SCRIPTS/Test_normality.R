@@ -20,8 +20,8 @@ Krus_AG_Lipid <- agricolae::kruskal(AG_Lipid$Fourtyeight, AG_Lipid$Trt)
 boxplot(Fourtyeight~Trt, data = AG_Lipid,
         ylim = c(0,300),
         ylab="MDA (% of the control)",
-        xlab="Treatments", names = c("Control", "Cu", "Cu+10_AN", 
-                                     "Cu+100_AN", "100_AN"),
+        xlab="Treatments", names = c("Control", "Cu", "Cu+10_AG", 
+                                     "Cu+100_AG", "100_AG"),
         main = "Lipid peroxidation expressed as MDA concentration in L. minor 
         after treated with Copper and A.negundo extracts",
         border=c("2","3","6","7","darkgreen"))
