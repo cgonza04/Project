@@ -119,11 +119,9 @@ p4 <- ggplot(lAN_Lipidm,aes(x = Time, y = value, group = Trt,)) +
   theme(axis.ticks.y = element_blank(),
         axis.text.y = element_blank())
 
-plots <- plot_grid(p1, p2, p3, p4)+ 
   labs(title = "Lipid peroxidation expressed as MDA concentration in L.minor 
     after treated with Copper and Leaf Litter extracts")+
   theme(plot.title = element_text(lineheight = 0.9))
-plots
 
 #putting legend one side
 legend <- get_legend(
