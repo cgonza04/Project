@@ -20,8 +20,8 @@ Krus_AG_Lipid <- agricolae::kruskal(AG_Lipid$Fourtyeight, AG_Lipid$Trt)
 boxplot(Fourtyeight~Trt, data = AG_Lipid,
         ylim = c(0,300),
         ylab="MDA (% of the control)",
-        xlab="Treatments", names = c("Control", "Cu", "Cu+10_AG", 
-                                     "Cu+100_AG", "100_AG"),
+        xlab="Treatments", names = c("Control", "Cu", "Cu+10_DOM_AG", 
+                                     "Cu+100_DOM_AG", "100_DOM_AG"),
         main = "Lipid peroxidation expressed as MDA concentration in L. minor 
         after treated with Copper and A.negundo extracts",
         border=c("2","3","6","7","darkgreen"))
@@ -38,8 +38,8 @@ Krus_AN_Lipid <- agricolae::kruskal(AN_Lipid$Fourtyeight, AN_Lipid$Trt)
 boxplot(Fourtyeight~Trt, data = AN_Lipid,
         ylim = c(0,300),
         ylab="MDA (% of the control)",
-        xlab="Treatments", names = c("Control", "Cu", "Cu+10_AN", 
-                                     "Cu+100_AN", "100_AN"),
+        xlab="Treatments", names = c("Control", "Cu", "Cu+10_DOM_AN", 
+                                     "Cu+100_DOM_AN", "100_DOM_AN"),
         main = "Lipid peroxidation expressed as MDA concentration in L. minor 
         after treated with Copper and A.negundo extracts",
         border=c("2","3","6","7","darkgreen"))
@@ -48,7 +48,7 @@ text( c("d","b","b","a", "c"),x=(1:5) ,y = c(130,230,230,230,140))
 
 #Cu CONCENTRATION
 
-#AG GOOD
+#AG
 model_Cu_AG  <- lm(Fourtyeight~Trt, data = Cu_AG)#linear model
 shap_Cu_AG <- shapiro.test(model_Cu_AG[["residuals"]])#Shapiro test
 library(agricolae)
@@ -58,8 +58,8 @@ Krus_Cu_AG
 boxplot(Fourtyeight~Trt, data = Cu_AG,
         ylim = c(0,460),
         ylab="Cu concentration in µg g^(−1)FW", 
-        xlab="Treatments", names = c("Control", "Cu", "Cu+10-DOC_AG", 
-                                     "Cu+100-DOC_AG"),
+        xlab="Treatments", names = c("Control", "Cu", "Cu+10_DOM_AG", 
+                                     "Cu+100_DOM_AG"),
         main = "Copper concentration in Lemna minor 48h after treatments 
         with Copper and Alnus glutinosa extracts",
         border=c("2","3","6","7","darkgreen"))
@@ -76,8 +76,8 @@ Krus_Cu_AN
 boxplot(Fourtyeight~Trt, data = Cu_AN,
         ylim = c(0,460),
         ylab="Cu concentration in µg g^(−1)FW",
-        xlab="Treatments", names = c("Control", "Cu", "Cu+10-DOC_AG", 
-                                     "Cu+100-DOC_AG"),
+        xlab="Treatments", names = c("Control", "Cu", "Cu+10_DOM_AN", 
+                                     "Cu+100_DOM_AN"),
          main = "Copper concentration in Lemna minor48h after treatments 
     with Copper and Acer negundo extracts",
         border=c("2","3","6","7","darkgreen"))
@@ -94,8 +94,8 @@ Krus_H2O2_AG <- agricolae::kruskal(AG_H2O2$Fourtyeight, AG_H2O2$Trt)
 boxplot(Fourtyeight~Trt, data = AG_H2O2,
         ylim = c(0,300),
         ylab="H2O2 content (% of the control)",
-        xlab="Treatments", names = c("Control", "Cu", "Cu+10_AG", 
-                                     "Cu+100_AG", "100_AG"), 
+        xlab="Treatments", names = c("Control", "Cu", "Cu+10_DOM_AG", 
+                                     "Cu+100_DOM_AG", "100_DOM_AG"), 
         main = "H2O2 content in Lemna minor after treatments with Copper 
   and Acer glutinosa extracts on Hydrogen Perodixation (H2O2)",
         border=c("2","3","6","7","darkgreen"))
@@ -125,7 +125,9 @@ text( c("c","b","b","a", "d"),x=(1:5) ,y = c(130,170,170,190,110))
 #We noticed that Alnus glutinosa and Acer negundo give quite the same
 #distribution, with Acer negundo being slightly more stressful to Lemna minor 
 #than Alnus glutinosa.
-
+grid.arrange(bp, vp, legend, ncol=2, nrow = 2, 
+             layout_matrix = rbind(c(1,2), c(3,3)),
+             widths = c(2.7, 2.7), heights = c(2.5, 0.2))
 
 
 
@@ -153,8 +155,8 @@ Krus_H2O2_AN <- agricolae::kruskal(AN_H2O2$Fourtyeight, AN_H2O2$Trt)
 boxplot(Fourtyeight~Trt, data = AN_H2O2,
         ylim = c(0,300),
         ylab="H2O2 content (% of the control)",
-        xlab="Treatments", names = c("Control", "Cu", "Cu+10_AN", 
-                                     "Cu+100_AN", "100_AN"), 
+        xlab="Treatments", names = c("Control", "Cu", "Cu+10_DOM_AN", 
+                                     "Cu+100_DOM_AN", "100_DOM_AN"), 
         main = "H2O2 content in Lemna minor after treatments with Copper 
   and Acer negundo extracts on Hydrogen Perodixation (H2O2)",
         border=c("2","3","6","7","darkgreen"))
