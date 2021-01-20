@@ -1,0 +1,1012 @@
+---
+title: Modifying Effects of Leaf Litter Extracts from Invasive Versus Native Tree
+  Species on Copper-Induced Responses in _Lemna minor_
+output: html_document
+date: 2020.12.16
+---
+
+
+
+Group members:
+
+* Carpentero Elizabeth  
+* da Cruz Albertazzi Mariana   
+* Gonzalez--Dehennault Charlotte    
+* Jyakho Sunmoon 
+
+
+```{r}
+
+```
+
+
+
+###  **1. Introduction**
+
+
+Excess Cu can induce negative effects including the production of reactive oxygen species (ROS) via Fenton reaction (Halliwell & Gutteridge, 1984). ROS, in turn, can oxidize lipids (De Vos et al., 1991), disrupt protein functions due to binding to sulphydryl groups (Weckx & Clijsters, 1996) and inhibit photosynthesis and electron transport (Thomas et al., 2013; Xia & Tian, 2009). Plant growth can be inhibited as a result.
+
+
+Excess of Cu in plants can cause oxidative stress, and therefore change antioxidative pathways. The solubility, adsorption, transport and toxicity of metals in natural surface waters are strongly influenced by complexation with dissolved organic matter (DOM).
+
+
+Moreover, it has been suggested that black alder _Alnus glutinosa_, native in Lithuania species, and boxelder maple _Acer negundo_, invasive in Lithuania species, impacted the same aquatic organisms in different ways (Krevš et al., 2013; Manusadžianas et al., 2014).
+
+
+###  **2. Objectives and Hypothesis**
+
+
+**Objectives**
+
+
+Studying the effect of natural organic matter (leaf litter extracts) derived from native tree species _Alnus glutinosa_ and invasive tree species Lithuania _Acer negundo_ on copper toxicity in _Lemna minor_ focusing on time-dependent alternations of:
+
+
+(1) Cu binding to DOM in media and accumulation in the plant,
+
+
+(2) morphophysiological parameters (frond area and root length) and;
+
+
+(3) oxidative stress characteristics like liquid peroxidation, hydrogen peroxide content .
+
+
+**Hypothesis**
+
+
+*_H0:_* Frond and root growth, accumulation of Cu, concentration of hydrogen peroxide and lipid peroxidation expressed as MDA concentration in _L. minor_ will be equal in treatments involving LLE of _Alnus glutinosa_ than in treatments involving LLE _Acer negundo_.
+
+
+*_H1:_* Frond and root growth, accumulation of Cu, concentration of hydrogen peroxide and lipid peroxidation expressed as MDA concentration in _L. minor_ will be different in treatments involving LLE of _Alnus glutinosa_ than in treatments involving LLE _Acer negundo_.
+
+
+
+###  **3. Methods**
+
+
+The experimental design comprised control (growth medium) and four treatments (growth medium supplemented with Cu (100µM CuSO4 or 6.4 mg Cu/L); 100 mg/L DOC; Cu + 10 mg/L DOC and Cu + 100 mg/L DOC.
+Statistical analysis:
+
+
+**Growth rate**
+
+
+The growth rate per day was taken into consideration as morphophysiological parameters. There were 8 independent variants ("1: Control", "2: Cu", "3: Cu+10-DOC_AG ", 4: Cu+100-DOC_AG ", "5: 100-DOC_AG", "6: Cu+10-DOC_AN ", "7: Cu+100-DOC_AN ", "8: 100-DOC_AN") for growth rate of frond and root. Three different sets of variants were taken into consideration for data analysis to better visualize the effects induced by Copper only, DOM only from  A. negundo and A. glutinosa, mixture of copper and different concentrations of A. negundo and A. glutinosa . We built a linear model to test the normality of our data. We used QQ plot and Shapiro-Wilk normality test to find if the data were normally distributed or not. Because the obtained P-value of frond growth rate and root growth were both lower than 0.05 in every case, we performed a non-parametric test. Kruskal wallis test was used to test the difference between treatments. Box plot was used to interpret our results.
+
+It was also found that there is a high correlation between Frond and Root growth rate. This is because the enlargement of aerial parts is accompanied by increased demands for water, minerals, and mechanical support that are met by coordinated growth of the root system. Likewise, the root depends on the shoot for organic nutrients.
+
+
+**Copper accumulation**
+
+
+For Copper accumulation, we took the measurement of 48h because the values of copper concentration at 48h seem to reach a plateau. The independent variables for Cu accumulation are: 1. Control 2. Cu only 3. (Cu+10-DOC_AG) or (Cu+10-DOC_AN) 4. (Cu+100-DOC_AG) or (Cu+100-DOC_AN). We built a linear model to test the normality of our data. We used QQ plot and Shapiro-Wilk normality test to find if the data were normally distributed or not. Because the obtained P-value of Copper accumulation was lower than 0.05, we performed a non-parametric test. Kruskal wallis test was used to test the difference between treatments. Box plot was used to interpret the results.
+
+
+**H2O2 concentration and Lipids peroxidation**
+
+
+The independent variables for Cu accumulation are: 1. Control 2. Cu only 3. (Cu+10-DOC_AG) or (Cu+10-DOC_AN) 4. (Cu+100-DOC_AG) or (Cu+100-DOC_AN) 5. (100-DOC_AG) or(100-DOC_AN). For H2O2 concentration and Lipids concentration, we took the measurement of 48h because the values of copper concentration at 48h seem to reach a plateau. We built a linear model to test the normality of our data. We used QQ plot and Shapiro-Wilk normality test to find if the data were normally distributed or not. Because the obtained P-value of both H2O2 concentration and lipid concentration was lower than 0.05, we performed a non-parametric test. Kruskal wallis test was used to test the difference between treatments. Box plot was used to interpret the results.
+ 
+
+
+###  **4. Results**
+
+
+
+```{r echo=FALSE, include=FALSE}
+
+#INSERT THE DATA
+
+#install.packages(readxl)
+
+# !!! Note: "Cu_Âµg_gFW_AN" often is saved in a strange way, so please check
+#it is written "microgram" with the greek letter (lines 24,50 and 51 of this script).
+
+# Data for growth rates of Frond and Roots in L.minor under 8 treatments. 
+#put Growth rates as GR
+library(readxl)
+GR <- read_excel("0.Data/Raw_Data_Fig_1_Growth_rates.xlsx", 
+                 range = "K13:M77")
+
+#Data for Cu accumulation in L.minor treated by Cu, and combinations of Cu and 
+#LLE from A. glutinosa.
+#import Cu concentrations for AG and AN
+library(readxl)
+Cu_AG <- read_excel("0.Data/Raw_Data_Fig_2_Cu_conc.xlsx", 
+                    range = "B10:i26", col_names = TRUE)
+
+#Data for Cu accumulation in L.minor treated by Cu, and combinations of Cu and 
+#LLE from A. negundo.
+Cu_AN <- read_excel("0.Data/Raw_Data_Fig_2_Cu_conc.xlsx", 
+                    sheet = "Cu_µg_gFW_AN", range = "B10:I26")
+
+#Concentration of hydrogen peroxide in L. minor treated by Cu, A. glutinosa 
+#LLE and Cu + A. glutinosa LLE.
+#import H2O2 for AG and AN
+library(readxl)
+AG_H2O2 <- read_excel("0.Data/Raw_Data_Fig_3_H2O2_conc.xlsx", 
+                      sheet = "H2O2_AG", range = "B10:I50")
+#Concentration of hydrogen peroxide in L. minor treated by Cu, A. negundo LLE 
+#and Cu + A. negundo LLE.
+AN_H2O2 <- read_excel("0.Data/Raw_Data_Fig_3_H2O2_conc.xlsx", 
+                      sheet = "H2O2_AN", range = "B10:I50")
+
+#Lipid peroxidation expressed as MDA concentration in L. minor treated by Cu, 
+#A. glutinosa LLE and Cu + A. glutinosa LLE.
+#import Lipid peroxidation
+library(readxl)
+AG_Lipid <- read_excel("0.Data/Raw_Data_Fig_4_Lipid_peroxidation.xlsx", 
+                       sheet = "MDA_AG", range = "B10:I50")
+
+#Lipid peroxidation expressed as MDA concentration in L. minor treated by Cu, 
+#A. negundo LLE and Cu + A. negundo LLE.
+AN_Lipid <- read_excel("0.Data/Raw_Data_Fig_4_Lipid_peroxidation.xlsx", 
+                       sheet = "MDA_AN", range = "B10:I50")
+
+#change the columns names to have Trt column in all the tables
+colnames(Cu_AG)[colnames(Cu_AG) == "Cu_µg_gFW_AG"] <- "Trt"
+colnames(Cu_AN)[colnames(Cu_AN) == "Cu_µg_gFW_AN"] <- "Trt"
+colnames(AG_H2O2)[colnames(AG_H2O2) == "H2O2_AG"] <- "Trt"
+colnames(AN_H2O2)[colnames(AN_H2O2) == "H2O2_AN"] <- "Trt"
+colnames(AG_Lipid)[colnames(AG_Lipid) == "MDA_AG"] <- "Trt"
+colnames(AN_Lipid)[colnames(AN_Lipid) == "MDA_AN"] <- "Trt"
+
+
+#ADD TREE SPECIES COLUMN AND MAKE 1 TABLE FOR EACH PARAMETER (COMBINE AN AND AG)
+#install.packages("tidyr")
+library(tidyr)
+
+#For Cu
+
+AN <- "AN"#create vector with specie "AN"
+AG <- "AG"#create vector with specie "AG"
+Cu_AN <- dplyr::mutate(Cu_AN, Tree_sp = AN)
+#to add the column for the tree specie AN in the table of AN
+Cu_AG <- dplyr::mutate(Cu_AG, Tree_sp = AG)
+#to add the column for the tree specie AG in the table of AG
+Cu <- dplyr::bind_rows(Cu_AG, Cu_AN)
+#we have table with the species and only one column of Trt
+
+
+#For H2O2
+
+AN_H2O2 <- dplyr::mutate(AN_H2O2, Tree_sp = AN)
+AG_H2O2 <- dplyr::mutate(AG_H2O2, Tree_sp = AG)
+H2O2 <- dplyr::bind_rows(AG_H2O2, AN_H2O2)
+
+#For Lipids
+
+AN_Lipid <- dplyr::mutate(AN_Lipid, Tree_sp = AN)
+AG_Lipid <- dplyr::mutate(AG_Lipid, Tree_sp = AG)
+Lipid <- dplyr::bind_rows(AN_Lipid, AG_Lipid)
+
+
+#RENAME COLUMNS FOR TRT AND TIME
+
+#rename the column of hours as numbers because having a number in the name 
+#always gives error message
+
+D1 <- list(Cu=Cu, Cu_AG=Cu_AG, Cu_AN=Cu_AN,AN_H2O2=AN_H2O2,AG_H2O2=AG_H2O2, H2O2=H2O2,
+           AG_Lipid=AG_Lipid, AN_Lipid=AN_Lipid, Lipid=Lipid)
+
+#i <- names(D1)[1]#to try the 1st
+for (i in names(D1)){
+  colnames(D1[[i]])[colnames(D1[[i]])=="0.75h"] <- "Zero.seventyfive"
+  colnames(D1[[i]])[ colnames(D1[[i]]) == "1.5h"] <- "One.five"
+  colnames(D1[[i]])[ colnames(D1[[i]]) == "3h"] <- "Three"
+  colnames(D1[[i]])[ colnames(D1[[i]]) == "6h"] <- "Six"
+  colnames(D1[[i]])[ colnames(D1[[i]]) == "12h"] <- "Twelve"
+  colnames(D1[[i]])[ colnames(D1[[i]]) == "24h"] <- "Twentyfour"
+  colnames(D1[[i]])[ colnames(D1[[i]]) == "48h"] <- "Fourtyeight"
+}
+
+#give again their names to the tables:
+Cu <- D1$Cu
+Cu_AG <- D1$Cu_AG
+Cu_AN <- D1$Cu_AN
+AN_H2O2 <- D1$AN_H2O2
+AG_H2O2 <- D1$AG_H2O2
+H2O2 <- D1$H2O2
+AG_Lipid <- D1$AG_Lipid
+AN_Lipid <- D1$AN_Lipid
+Lipid <- D1$Lipid
+
+```
+### Cu concentration
+
+```{r echo=FALSE, include=FALSE, warning=FALSE}
+##MAKE THE TABLE WITH MEANS FOR EACH TRT (=ONLY ONE LINE PER TRT PER SPECIES)
+library(dplyr)
+
+Cu_AGmeans <- Cu_AG %>% 
+  group_by(Trt, Tree_sp) %>% 
+  summarise(mean0.75 = mean(Zero.seventyfive),
+            mean1.5 = mean(One.five),
+            mean3 = mean(Three),
+            mean6 =mean(Six),
+            mean12 = mean(Twelve),
+            mean24 = mean(Twentyfour),
+            mean48 = mean(Fourtyeight))
+#colnames(Cu2)[colnames(Cu2) == "mean"] <- "meanFourtyeight"
+
+#Cu_ANmeans
+Cu_ANmeans <- Cu_AN %>% 
+  group_by(Trt, Tree_sp) %>% 
+  summarise(mean0.75 = mean(Zero.seventyfive),
+            mean1.5 = mean(One.five),
+            mean3 = mean(Three),
+            mean6 =mean(Six),
+            mean12 = mean(Twelve),
+            mean24 = mean(Twentyfour),
+            mean48 = mean(Fourtyeight))
+
+
+#long tables for boxplot for Cu AG
+lCu_AG <- pivot_longer(Cu_AG, 2:8, "time")
+lCu_AG$Trt <- factor(lCu_AG$Trt,
+                     levels = 1:4,
+                     labels = c("Control", "Cu","Cu+10_DOM", "Cu+100_DOM"))
+namex1 <- factor(lCu_AG$time, levels = c("Zero.seventyfive", "One.five", 
+                                         "Three","Six", "Twelve", "Twentyfour",
+                                         "Fourtyeight"))
+
+#long tables for boxplot for Cu AN
+lCu_AN <- pivot_longer(Cu_AN, 2:8, "time")
+lCu_AN$Trt <- factor(lCu_AN$Trt,
+                     levels = 1:4,
+                     labels = c("Control", "Cu","Cu+10_DOM", "Cu+100_DOM"))
+
+#long table for Cu AG for line plots
+lCu_AGmeans <- pivot_longer(Cu_AGmeans, 3:9, "time")
+
+lCu_AGmeans$Trt <- factor(lCu_AGmeans$Trt,
+                          levels = 1:4,
+                          labels = c("Control", "Cu","Cu+10_DOM", "Cu+100_DOM"))
+                          #to order
+#to put the x names in the good order
+name <- factor(lCu_AGmeans$time, levels = c("mean0.75", "mean1.5", "mean3",
+                                            "mean6", "mean12", "mean24",
+                                            "mean48"),
+               labels = c("0.75", "1.5", "3","6", "12", "24","48"))
+
+#long table for Cu AN for line plots
+lCu_ANmeans <- pivot_longer(Cu_ANmeans, 3:9, "time") #for AN
+
+lCu_ANmeans$Trt <- factor(lCu_ANmeans$Trt,
+                          levels = 1:4,
+                          labels = c("Control", "Cu","Cu+10_DOM", "Cu+100_DOM"))
+
+
+#long tables for boxplot for Cu AG
+lCu_AG <- pivot_longer(Cu_AG, 2:8, "time")
+lCu_AG$Trt <- factor(lCu_AG$Trt,
+                     levels = 1:4,
+                     labels = c("Control", "Cu","Cu+10_DOM", "Cu+100_DOM"))
+namex1 <- factor(lCu_AG$time, levels = c("Zero.seventyfive", "One.five", 
+                                         "Three","Six", "Twelve", "Twentyfour",
+                                         "Fourtyeight"))
+
+#long tables for boxplot for Cu AN
+lCu_AN <- pivot_longer(Cu_AN, 2:8, "time")
+lCu_AN$Trt <- factor(lCu_AN$Trt,
+                     levels = 1:4,
+                     labels = c("Control", "Cu","Cu+10_DOM", "Cu+100_DOM"))
+
+#long table for Cu AG for line plots
+lCu_AGmeans <- pivot_longer(Cu_AGmeans, 3:9, "time")
+
+lCu_AGmeans$Trt <- factor(lCu_AGmeans$Trt,
+                          levels = 1:4,
+                          labels = c("Control", "Cu","Cu+10_DOM", "Cu+100_DOM"))
+                          #to order
+#to put the x names in the good order
+name <- factor(lCu_AGmeans$time, levels = c("mean0.75", "mean1.5", "mean3",
+                                            "mean6", "mean12", "mean24",
+                                            "mean48"),
+               labels = c("0.75", "1.5", "3","6", "12", "24","48"))
+
+#long table for Cu AN for line plots
+lCu_ANmeans <- pivot_longer(Cu_ANmeans, 3:9, "time") #for AN
+
+lCu_ANmeans$Trt <- factor(lCu_ANmeans$Trt,
+                          levels = 1:4,
+                          labels = c("Control", "Cu","Cu+10_DOM", "Cu+100_DOM"))
+
+
+
+```
+
+#
+
+```{r, echo=FALSE, warning=FALSE, fig.cap = "Figure 1. Accumulation of Copper in _Lemna minor_ during 48h. Control (orange) stays at a very low value, while the other treatments cause an increasing accumulation of copper. Cu alone and Cu + 100 mg of Leaf extracts seem to be significantly higher from Cu + 10mg of Leaf extracts. "}
+#make the plots
+library(ggplot2)
+library(cowplot)
+
+p1 <- ggplot(lCu_AN, aes(x = namex1, y = value, fill = Trt, 
+                         color = Trt, scale.default())) +
+  geom_boxplot()+
+  labs(y = "Cu concentration", fill = "Treatment", color = "Treatment", x = NULL) +
+  theme_bw()+
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank())+
+  theme(legend.position = "none") #remove the legend
+
+p2 <- ggplot(lCu_AG, aes(x = namex1, y = value ,fill = Trt, 
+                        color = Trt, scale.default())) +
+  geom_boxplot()+
+  labs(y = NULL, fill = "Treatment", color = "Treatment", x = NULL) +
+  theme_bw()+
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank())+
+  theme(legend.position = "none")+ 
+theme(axis.ticks.y = element_line(colour="white"),
+      axis.text.y = element_text(colour="white"))
+
+p3 <- ggplot(lCu_ANmeans, aes(x = name, y = value,group = Trt, )) +
+  geom_line(aes(color = Trt)) +
+  geom_line(linetype = "dashed")+
+  geom_point()+
+  labs(y = "Cu concentration", fill = "Treatment", color = "Treatment", x = "Time") +
+  theme_bw()+
+  theme(legend.position = "none")
+
+p4 <- ggplot(lCu_AGmeans, aes(x = name, y = value,group = Trt, )) +
+  geom_line(aes(color = Trt)) +
+  geom_line(linetype = "dashed")+
+  geom_point()+
+  labs(y = NULL, fill = "Treatment", color = "Treatment", x = "Time") +
+  theme_bw()+
+  theme(legend.position = "none")+ 
+ theme(axis.ticks.y = element_line(colour="white"),
+      axis.text.y = element_text(colour="white"))
+
+#add title
+plots <- plot_grid(p1, p2, p3, p4, labels = c('AN', 'AG', '', ''), hjust = -1, vjust = -0.5)+ 
+  labs(title = "Copper concentration in Lemna minor
+after treated with Copper and Leaf Litter extracts")+
+  theme(plot.title = element_text(lineheight = 0.9, vjust = 8))+
+  theme(plot.margin=margin(21,15,4,4))
+
+#put once the legend on right side
+legend <- get_legend(p1 + theme(legend.position = "right"))
+plot_grid(plots,legend,rel_widths = c(3,.4))
+```
+
+#
+#### **Normality test**
+
+1. Testing the normality of the data for _Alnus glutinosa_ leaf extracts.
+
+```{r, echo=FALSE}
+model_Cu_AG  <- lm(Fourtyeight~Trt, data = Cu_AG)#linear model
+shap_Cu_AG <- shapiro.test(model_Cu_AG[["residuals"]])#Shapiro test
+shap_Cu_AG
+```
+2. Testing the normality of the data for _Acer negundo_ leaf extracts.
+
+```{r echo=FALSE}
+model_Cu_AN  <- lm(Fourtyeight~Trt, data = Cu_AN)#linear model
+shap_Cu_AN <- shapiro.test(model_Cu_AN[["residuals"]])#Shapiro test
+shap_Cu_AN
+```
+#
+#### **Kruskall-Wallis groups and plot**
+
+```{r echo=FALSE, warning=FALSE, fig.cap = "Figure 2. Copper concentration in _L. minor_ at 48h. For _A. glutinosa_, Kruskal-Wallis letters give three groups, with Cu alone and Cu + 100 mg of leaf litter being not significantly different. For _A. negundo_, all treatments give a significantly different group."}
+par(mfrow=c(1,2),
+    oma = c(5,5,5,0) + 0.1,
+    mar = c(1,0,1,0) + 0.1)
+boxplot(Fourtyeight~Trt, data = Cu_AG,
+        ylim = c(0,460),
+        ylab="Cu concentration in micrograms/ g", 
+        xlab="Treatments", names = c("Control", "Cu", "Cu+10AG", 
+                                     "Cu+100AG"), par(cex.axis=0.7),
+        main = "AG",
+        border=c("2","3","6","7","darkgreen"))
+text(x=(1:4) , c("c","a","b","a"), pos = 3, y = c(30,410,260,420))
+boxplot(Fourtyeight~Trt, data = Cu_AN,
+        ylim = c(0,460),
+        ylab= NULL, yaxt='n',
+        xlab="Treatments", names = c("Control", "Cu", "Cu+10AN", 
+                                     "Cu+100AN"),
+        main = "AN",
+        border=c("2","3","6","7","darkgreen"))
+text(x=(1:4) , c("d","a","c","b"), pos = 3, y = c(30,415,210,390))
+
+mtext("Copper concentration in Lemna minor 48h after treatments 
+    with Copper and DOM", side = 3, line = 2, 
+      outer = TRUE, cex = 1.2)
+mtext("Treatments", side = 1, line = 2, 
+      outer = TRUE, cex = 1.2)
+mtext("Cu concentration in micrograms/ g", side = 2, line = 3, 
+      outer = TRUE, cex = 1.2)
+
+```
+
+
+### Lipid peroxidation
+# 
+
+```{r echo=FALSE, include=FALSE, warning=FALSE}
+      #Lipid 4 Plots with table means
+
+#####LIPIDS LINEGRAPH###
+#make the table will the means of each treatment so we have only 1 row per 
+#treatment per species  (so 6 rows)
+#AG
+library(dplyr)
+Ag_Lipidm <- AG_Lipid %>% 
+  group_by(Trt, Tree_sp) %>% 
+  summarise(mean0.75h = mean(Zero.seventyfive),
+            mean1.5h = mean(One.five),
+            mean3h = mean(Three),
+            mean6h = mean(Six),
+            mean12h = mean(Twelve),
+            mean24h = mean(Twentyfour),
+            mean48h = mean(Fourtyeight))
+#AN LIPIDS
+library(dplyr)
+An_Lipidm <- AN_Lipid %>% 
+  group_by(Trt, Tree_sp) %>% 
+  summarise(mean0.75h = mean(Zero.seventyfive),
+            mean1.5h = mean(One.five),
+            mean3h = mean(Three),
+            mean6h = mean(Six),
+            mean12h = mean(Twelve),
+            mean24h = mean(Twentyfour),
+            mean48h = mean(Fourtyeight))
+
+
+
+####long tables lipid for boxplot
+##AG
+lAG_Lipid <- pivot_longer(AG_Lipid, 2:8, "time")
+lAG_Lipid$Trt <- factor(lAG_Lipid$Trt,
+                        levels = 1:5,
+                        labels = c("Control", "Cu", "Cu+10DOM", "Cu+100DOM", "100DOM"))#to order
+
+lAG_Lipid$time <- factor(lAG_Lipid$time,
+                         levels = c ("Zero.seventyfive", "One.five", "Three", 
+                                     "Six", "Twelve", "Twentyfour", "Fourtyeight"))
+                         
+##AN
+lAN_Lipid <- pivot_longer(AN_Lipid, 2:8, "time")
+lAN_Lipid$Trt <- factor(lAN_Lipid$Trt,
+                        levels = 1:5,
+                        labels = c("Control", "Cu", "Cu+10DOM", "Cu+100DOM", "100DOM"))#to order
+
+lAN_Lipid$time <-  factor(lAN_Lipid$time,
+                          levels = c("Zero.seventyfive", "One.five", "Three", 
+                                     "Six", "Twelve", "Twentyfour", "Fourtyeight"))
+                         
+#long table for Cu AN for line plots
+#AG
+
+lAG_Lipidm <- pivot_longer(Ag_Lipidm, 3:9, "time") #for AG
+
+lAG_Lipidm$time <- factor(lAG_Lipidm$time,
+                          levels = c("mean0.75h", "mean1.5h", "mean3h",
+                                     "mean6h", "mean12h", "mean24h",
+                                     "mean48h"),
+                          labels = c("0.75h", "1.5h", "3h",
+                                     "6h", "12h", "24h", "48h"))
+lAG_Lipidm$Trt <- factor(lAG_Lipidm$Trt,
+                         levels = 1:5,
+                         labels = c("Control", "Cu", "Cu+10DOM", "Cu+100DOM", "100DOM"))#to order
+#AN
+lAN_Lipidm <- pivot_longer(An_Lipidm, 3:9, "time") #for AN
+
+
+lAN_Lipidm$time <- factor(lAN_Lipidm$time,
+                          levels = c("mean0.75h", "mean1.5h", "mean3h",
+                                     "mean6h", "mean12h", "mean24h",
+                                     "mean48h"),
+                          labels = c("0.75h", "1.5h", "3h",
+                                     "6h", "12h", "24h", "48h"))
+
+lAN_Lipidm$Trt <- factor(lAN_Lipidm$Trt,
+                         levels = 1:5,
+                         labels = c("Control", "Cu", "Cu+10DOM", "Cu+100DOM", "100DOM"))#to order
+
+
+```
+
+
+
+```{r, echo=FALSE, warning=FALSE, results='hide', fig.cap = "Figure 3. After plants were incubated and exposed to the different treatments, the first response phase (up to 6 h), fluctuations of lipid peroxidation products at various rates observed in all the treatments, except the control. While smooth increasing trend of lipid peroxidation took place at second response phase (up to 48h)."}
+
+###FUSING THE 4 GRAPHS OF LIPIDS (Boxplot x Lineplot)
+library(ggplot2)
+library(cowplot)
+
+p1 <- ggplot(lAG_Lipid, aes(x = time, y = value,fill = Trt, color = Trt, )) +
+  geom_boxplot()+
+  labs(y = "MDA(% of the control)",  x = NULL, fill = "Treatment", color = "Treatment") +
+  theme_bw()+
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank())+
+  theme(legend.position = "none") #remove the legend
+
+p2 <- ggplot(lAN_Lipid, aes(x = time, y = value,fill = Trt, color = Trt, )) +
+  geom_boxplot()+
+  labs(y = NULL, fill = "Treatment", color = "Treatment", x = NULL) +
+  theme_bw()+
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank())+
+  theme(legend.position = "none")+
+  theme(axis.ticks.y = element_line(colour="white"),
+      axis.text.y = element_text(colour="white"))
+
+
+p3 <- ggplot(lAG_Lipidm,aes(x = time, y = value, group = Trt,)) +
+  geom_line(aes(color = Trt)) + 
+  geom_line(linetype = "dashed")+
+  geom_point()+
+  labs(y = "MDA(% of the control)", fill = "Treatment", color = "Treatment") +
+  theme_bw()+
+  theme(legend.position = "none") #remove the legend
+  
+p4 <- ggplot(lAN_Lipidm,aes(x = time, y = value, group = Trt,)) +
+  geom_line(aes(color = Trt)) + 
+  geom_line(linetype = "dashed")+
+  labs(y = NULL, color = "Treatment") +
+  geom_point()+
+  theme_bw()+
+  theme(legend.position = "none")+
+  theme(axis.ticks.y = element_line(colour="white"),
+      axis.text.y = element_text(colour="white"))
+
+plots <- plot_grid(p1, p2, p3, p4, labels = c('AN', 'AG', '', ''), hjust = -1, vjust = -0.5)+
+  labs(title = "Lipid peroxidation expressed as MDA concentration in L.minor 
+    after treated with Copper and Leaf Litter extracts")+
+  theme(plot.title = element_text(lineheight = 0.9, vjust = 8))+
+  theme(plot.margin=margin(21,15,4,4))
+
+
+#put once the legend on right side
+legend <- get_legend(p1 + theme(legend.position = "right"))
+plot_grid(plots,legend,rel_widths = c(3,.4))
+
+
+```
+
+# 
+#### **Normality test**
+
+1. Testing the normality of the data for _Alnus glutinosa_ extracts.
+
+```{r echo=FALSE, warning=FALSE}
+# Build the linear model
+model_AG_Lipid  <- lm(Fourtyeight~Trt, data = AG_Lipid)
+#shapiro test
+shap_AG_Lipid <- shapiro.test(model_AG_Lipid[["residuals"]])
+shap_AG_Lipid
+```
+2. Testing the normality of the data for _Acer negundo_ extracts.
+```{r echo=FALSE, warning=FALSE}
+model_AN_Lipid  <- lm(Fourtyeight~Trt, data = AN_Lipid)#linear model
+shap_AN_Lipid <- shapiro.test(model_AN_Lipid[["residuals"]])#Shapiro test
+shap_AN_Lipid
+```
+# 
+#### **Kruskall-Wallis groups and plots**
+
+
+```{r echo=FALSE, warning=FALSE, fig.cap = "Figure 4. For _A. glutinosa_ 48 hour boxplot: At 48 h, Cu and Cu+100AG treatment gained the highest lipid peroxidation rate that appeared to be not significantly different. For _A. negundo_ 48 hour boxplot:At 48 h, Cu+100AN obtained the highest lipid peroxidation rate, followed by Cu and Cu+10 treatments which appeared to be not significantly different with each other."}
+library(agricolae)#Kruskall wallis
+Krus_AN_Lipid <- agricolae::kruskal(AN_Lipid$Fourtyeight, AN_Lipid$Trt)
+
+par(mfrow=c(1,2),
+    oma = c(5,5,5,0) + 0.1,
+    mar = c(1,0,1,0) + 0.1)
+boxplot(Fourtyeight~Trt, data = AG_Lipid,
+        ylim = c(0,300),
+        ylab="MDA (% of the control)",
+        xlab="Treatments", names = c("Control", "Cu", "Cu+10AG", 
+                                     "Cu+100AG", "100AG"),par(cex.axis=0.5),
+        main = "AG",
+        border=c("2","3","6","7","darkgreen"))
+text( c("d","a","b","a", "c"),x=(1:5) ,y = c(130,230,170,230,140))
+boxplot(Fourtyeight~Trt, data = AN_Lipid,
+        ylim = c(0,300),
+        ylab= NULL, yaxt='n',
+        xlab="Treatments", names = c("Control", "Cu", "Cu+10_AN", 
+                                     "Cu+100_AN", "100_AN"),
+        main = "AN",
+        border=c("2","3","6","7","darkgreen"))
+text( c("d","b","b","a", "c"),x=(1:5) ,y = c(130,230,230,230,140))
+
+mtext("Lipid peroxidation expressed as MDA concentration in L. minor 
+        after treated with Copper and DOM", side = 3, line = 2, 
+      outer = TRUE, cex = 1.2)
+mtext("Treatments", side = 1, line = 2, 
+      outer = TRUE, cex = 1.2)
+mtext("MDA concentration (%)", side = 2, line = 3, 
+      outer = TRUE, cex = 1.2)
+```
+
+### H2O2 concentration
+# 
+```{r echo=FALSE,include=FALSE, warning=FALSE}
+#make the table will the means of each treatment so we have only 1 row per 
+#treatment per species  (so 6 rows)
+#AG
+library(dplyr)
+H2O2_AG2 <- AG_H2O2 %>% 
+  group_by(Trt, Tree_sp) %>% 
+  summarise(mean0.75h = mean(Zero.seventyfive),
+            mean1.5h = mean(One.five),
+            mean3h = mean(Three),
+            mean6h = mean(Six),
+            mean12h = mean(Twelve),
+            mean24h = mean(Twentyfour),
+            mean48h = mean(Fourtyeight))
+#AN LIPIDS
+library(dplyr)
+H2O2_AN2 <- AN_H2O2 %>% 
+  group_by(Trt, Tree_sp) %>% 
+  summarise(mean0.75h = mean(Zero.seventyfive),
+            mean1.5h = mean(One.five),
+            mean3h = mean(Three),
+            mean6h = mean(Six),
+            mean12h = mean(Twelve),
+            mean24h = mean(Twentyfour),
+            mean48h = mean(Fourtyeight))
+
+
+
+####long tables H2O2 for boxplot
+##AG
+lAG_H2O2 <- pivot_longer(AG_H2O2, 2:8, "Time")
+lAG_H2O2$Trt <- factor(lAG_H2O2$Trt,
+                        levels = 1:5,
+                        labels = c("Control", "Cu", "Cu+10DOM", "Cu+100DOM", "100DOM"))#to order
+
+lAG_H2O2$Time <- factor(lAG_H2O2$Time,
+                         levels = c ("Zero.seventyfive", "One.five", "Three", 
+                                     "Six", "Twelve", "Twentyfour", "Fourtyeight"))
+                         
+##AN
+lAN_H2O2 <- pivot_longer(AN_H2O2, 2:8, "Time")
+lAN_H2O2$Trt <- factor(lAN_H2O2$Trt,
+                       levels = 1:5,
+                       labels = c("Control", "Cu", "Cu+10DOM", "Cu+100DOM", "100DOM"))#to order
+
+
+lAN_H2O2$Time <-  factor(lAN_H2O2$Time,
+                          levels = c("Zero.seventyfive", "One.five", "Three", 
+                                     "Six", "Twelve", "Twentyfour", "Fourtyeight"))
+                         
+#long table for line plots
+#AG
+
+lH2O2_AG2 <- pivot_longer(H2O2_AG2, 3:9, "Time") #for AG
+
+lH2O2_AG2$Time <- factor(lH2O2_AG2$Time,
+                          levels = c("mean0.75h", "mean1.5h", "mean3h",
+                                     "mean6h", "mean12h", "mean24h",
+                                     "mean48h"),
+                          labels = c("0.75h", "1.5h", "3h",
+                                     "6h", "12h", "24h", "48h"))
+lH2O2_AG2$Trt <- factor(lH2O2_AG2$Trt,
+                         levels = 1:5,
+                         labels = c("Control", "Cu", "Cu+10DOM", "Cu+100DOM", "100DOM"))#to order
+#AN
+lH2O2_AN2 <- pivot_longer(H2O2_AN2, 3:9, "Time") #for AN
+
+
+lH2O2_AN2$Time <- factor(lH2O2_AN2$Time,
+                          levels = c("mean0.75h", "mean1.5h", "mean3h",
+                                     "mean6h", "mean12h", "mean24h",
+                                     "mean48h"),
+                          labels = c("0.75h", "1.5h", "3h",
+                                     "6h", "12h", "24h", "48h"))
+```
+
+
+```{r echo=FALSE, warning=FALSE, results='hide',fig.cap = "Figure 5. Plants were incubated in control medium, 100 µM Cu, 100 mg/L DOM from _A. glutinosa_ or _A.negundo_ , and Cu+10 mg/L DOM or Cu + 100 mg/L DOM. The highest changes in H2O2 levels in plants were induced at early stages of the treatments. The H2O2 content increased significantly at 3 h of exposure to Cu, its combinations with either _A. glutinosa_ or _A. negundo_ extracts, and to 100-DOCAG or 100-DOCAN alone"}
+library(ggplot2)
+library(cowplot)
+
+p1 <- ggplot(lAG_H2O2, aes(x = Time, y = value, fill = Trt, color = Trt)) +
+  geom_boxplot()+
+  labs(y = "H2O2 concentration",  x = NULL, 
+       fill = "Treatment", color = "Treatment") +
+  theme_bw()+
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank())+
+  theme(legend.position = "none") #remove the legend
+
+p2 <- ggplot(lAN_H2O2, aes(x = Time, y = value, fill = Trt, color = Trt)) +
+  geom_boxplot()+
+  labs(y = NULL, fill = "Treatment", color = "Treatment", x = NULL) +
+  theme_bw()+
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank())+
+  theme(legend.position = "none")+
+  theme(axis.ticks.y = element_line(colour="white"),
+      axis.text.y = element_text(colour="white"))
+
+p3 <- ggplot(lH2O2_AG2,aes(x = Time, y = value, group = Trt,)) +
+  geom_line(aes(color = Trt)) + 
+  geom_line(linetype = "dashed")+
+  geom_point()+
+  labs(y = "H2O2 concentration", fill = "Treatment", color = "Treatment") +
+  theme_bw()+
+  theme(legend.position = "none") #remove the legend
+  
+p4 <- ggplot(lH2O2_AN2,aes(x = Time, y = value, group = Trt,)) +
+  geom_line(aes(color = Trt)) + 
+  geom_line(linetype = "dashed")+
+  labs(y = NULL, color = "Treatment") +
+  geom_point()+
+  theme_bw()+
+  theme(legend.position = "none")+
+ theme(axis.ticks.y = element_line(colour="white"),
+      axis.text.y = element_text(colour="white"))
+
+plots <- plot_grid(p1, p2, p3, p4, labels = c('AN', 'AG', '', ''), hjust = -1, vjust = -0.5)+
+  labs(title = "H2O2 concentration in L.minor 
+    after treated with Copper and Leaf Litter extracts")+
+  theme(plot.title = element_text(lineheight = 0.9, vjust = 8))+
+  theme(plot.margin=margin(21,15,4,4))
+
+
+#put once the legend on right side
+legend <- get_legend(p1 + theme(legend.position = "right"))
+plot_grid(plots,legend,rel_widths = c(3,.4))
+```
+
+# 
+#### **Normality test**
+
+1. Testing the normality of the data for _Alnus glutinosa_ leaf extracts.
+
+```{r echo=FALSE, warning=FALSE}
+model_H2O2_AG  <- lm(Fourtyeight~Trt, data = AG_H2O2)#linear model
+shap_H2O2_AG <- shapiro.test(model_H2O2_AG[["residuals"]])#Shapiro test
+shap_H2O2_AG
+```
+
+2. Testing the normality of the data for _Acer negundo_ leaf extracts.
+
+```{r echo=FALSE, warning=FALSE}
+AN_H2O2$Trt <- as.factor((AN_H2O2$Trt))
+AN_H2O2$Trt = factor(AN_H2O2$Trt, labels = c("control", "Cu", "Cu+10AN", 
+                                             "Cu+100AN", "100AN"))
+model_H2O2_AN  <- lm(Fourtyeight~Trt, data = AN_H2O2)#linear model
+shap_H2O2_AN <- shapiro.test(model_H2O2_AN[["residuals"]])#Shapiro test
+shap_H2O2_AN
+```
+# 
+#### **Kruskal-Wallis(plot 1) and Anova and Tukey test (plot 2)**
+
+```{r  echo=FALSE, warning=FALSE, fig.cap = "Figure 6. For _A. negundo_ at 48h, there is no significant difference observed between Control and only Acer negundo extract. Only copper and Cu+10AN produce similar amount of H2O2.For _A. glutinosa_ at 48h, there is significant difference observed between Control and all other treatments. Treatments with only copper and Cu+10AG produce similar amount of H2O2."}
+
+Krus_H2O2_AG <- agricolae::kruskal(AG_H2O2$Fourtyeight, AG_H2O2$Trt)
+res.aov <- aov(Fourtyeight ~ Trt, data = AN_H2O2)
+#We get the p-value=2e-16, which is much less than 0.05. This means the 
+#treatments are significantly different.
+
+library(agricolae)#Kruskall wallis
+Krus_H2O2_AN <- agricolae::kruskal(AN_H2O2$Fourtyeight, AN_H2O2$Trt)
+
+par(mfrow=c(1,2),
+    oma = c(5,5,5,0) + 0.1,
+    mar = c(1,0,1,0) + 0.1)
+boxplot(Fourtyeight~Trt, data = AG_H2O2,
+        ylim = c(0,300),
+        ylab="H2O2 content (% of the control)",
+        xlab="Treatments", names = c("Control", "Cu", "Cu+10_AG", 
+                                     "Cu+100_AG", "100_AG"), par(cex.axis=0.5),
+        main = "AG",
+        border=c("2","3","6","7","darkgreen"))
+text( c("c","b","b","a", "d"),x=(1:5) ,y = c(130,170,170,190,110))
+boxplot(Fourtyeight~Trt, data = AN_H2O2,
+        ylim = c(0,300),
+        ylab= NULL, yaxt='n',
+        xlab="Treatments", names = c("Control", "Cu", "Cu+10_AN", 
+                                     "Cu+100_AN", "100_AN"), 
+        main = "AN",
+        border=c("2","3","6","7","darkgreen"))
+text( c("c","b","b","a", "c"),x=(1:5) ,y = c(130,170,165,200,125))
+mtext("H2O2 content in Lemna minor after treatments with Copper 
+  and DOM extracts on Hydrogen Perodixation (H2O2)", side = 3, line = 2, 
+      outer = TRUE, cex = 1.2)
+mtext("Treatments", side = 1, line = 2, 
+      outer = TRUE, cex = 1.2)
+mtext("H2O2 content (% of the control)", side = 2, line = 3, 
+      outer = TRUE, cex = 1.2)
+```
+
+
+
+### Growth Rate
+
+```{r echo=FALSE, warning=FALSE}
+#Subset of 1,2, 3, 4 and 5 treatments.
+GR2 <- subset(GR, Variant == 1 | Variant == 2 | Variant == 3 | Variant == 4| Variant == 5) 
+
+#Subset of 1,2, 6, 7 and 8 treatments.
+GR3 <- subset(GR, Variant == 1 | Variant == 2 | Variant == 6 | Variant == 7
+              | Variant == 8)
+
+```
+# 
+#### **Normality tests** 
+
+For Frond Growth ( _Acer negundo_ leaf extracts)
+```{r echo=FALSE, warning=FALSE}
+model  <- lm(FrondGR~Variant, data = GR2)
+
+#Shapiro test
+shap <- shapiro.test(model[["residuals"]])
+shap
+#We will use Kruskal wallis test because the data is not normal.
+##install.packages("agricolae")
+library(agricolae)
+
+KrusFG <- agricolae::kruskal(GR2$FrondGR, GR2$Variant)
+```
+
+For Root Growth ( _Acer negundo_ leaf extracts)
+
+```{r echo=FALSE, warning=FALSE}
+model2  <- lm(RootGR~Variant, data = GR2)
+
+#Shapiro test
+shap2 <- shapiro.test(model2[["residuals"]])
+shap2
+#We will use Kruskal wallis test because the data is not normal.
+KrusRG <- agricolae::kruskal(GR2$RootGR, GR2$Variant)
+
+```
+
+For Frond Growth ( _Alnus glutinosa_ leaf extracts)
+```{r echo=FALSE, warning=FALSE}
+model3  <- lm(FrondGR~Variant, data = GR3)
+
+#Shapiro test
+shap3 <- shapiro.test(model3[["residuals"]])
+shap3
+#We will use Kruskal wallis test because the data is not normal.
+KrusFG3 <- agricolae::kruskal(GR3$FrondGR, GR3$Variant)
+```
+
+For Root Growth ( _Alnus glutinosa_ leaf extracts)
+
+```{r echo=FALSE, warning=FALSE}
+model4  <- lm(RootGR~Variant, data = GR3)
+
+#Shapiro test
+shap4 <- shapiro.test(model4[["residuals"]])
+shap4
+#We will use Kruskal wallis test because the data is not normal.
+KrusRG4 <- agricolae::kruskal(GR3$RootGR, GR3$Variant)
+```
+# 
+#### **Kruskal-Wallis test and plots**
+
+```{r echo=FALSE, warning=FALSE, fig.cap = "Figure 7. Frond and Root Growth Rates were significantly affected by all treatments. Regarding Frond, in the treatment with Cu, growth rate was negative. The 100-DOM AG and AN treatments diminished the development of the frond area in comparison to the control, but they increased the growth rate in comparison to Cu alone. As for the effects in Roots, there was no growth for the treatment with just Cu or for the one with Cu + 10- DOM AG. Cu + 10-DOM AN did show an improvement in relation to only Cu. Also, both 100-DOM AG and AN, when applied in the presence of Cu, increased the root growth significantly."}
+par(mfrow=c(2,2),mar=c(0.00001,1,2,0),oma=c(6,6,5,3))
+ 
+boxplot(FrondGR~Variant, data = GR2,
+        ylim= c(-0.4,0.3),
+        ylab="Frond", cex.lab=1.4,
+        xlab= NULL, xaxt='n',
+        main ="AG",
+        border=c("2","3","4","5","8"))
+text(x=(1:5),y=c(0.23, -0.2, 0.05, 0.09, 0.16) , c("a","e", "d","c","b"))
+boxplot(FrondGR~Variant, data = GR3,
+        ylim= c(-0.4,0.3),
+        ylab=NULL, yaxt='n',
+        xlab=NULL, xaxt='n',
+        main = "AN"
+        ,border=c("2","3","6","7","darkgreen"))
+text(x=(1:5),y=c(0.23, -0.2, 0.04, 0.02, 0.22) , c("a","e","c","d","b"))
+boxplot(RootGR~Variant, data = GR2,
+        ylim= c(0,0.9),
+        ylab="Root",cex.lab=1.4,
+        xlab=NULL, names = c("Control", "Cu", 
+                             "Cu+10AG","Cu+100AG", 
+                             "100AG"), par(cex.axis=0.6),
+        main = NULL
+        ,border=c("2","3","4","5","8"))
+text(x=(1:5),y=c(0.82, 0.05, 0.05, 0.22, 0.43) , c("a","d","d","c","b"))
+boxplot(RootGR~Variant, data = GR3,
+        ylim= c(0,0.9),
+        ylab=NULL, yaxt='n',
+        xlab=NULL, names = c("Control", "Cu", 
+                             "Cu+10AN","Cu+100AN", 
+                             "100AN"), 
+        main = NULL
+        ,border=c("2","3","6","7","darkgreen"))
+text(x=(1:5),y=c(0.82, 0.04, 0.15, 0.44, 0.57) , c("a","e","d","c","b"))
+mtext("Effect of Cu, Ag and AN on Growth Rate", side = 3, line = 2, 
+      outer = TRUE, cex = 1.5)
+mtext("Treatments", side = 1, line = 3, 
+      outer = TRUE, cex = 1.2)
+mtext("Growth Rate (mm d^-1)", side = 2, line = 3, 
+      outer = TRUE, cex = 1.2)
+
+
+```
+# 
+#### Correlation between Frond and Root Growth
+
+#### **Normality test**
+```{r echo=FALSE, warning=FALSE}
+model5  <- lm(FrondGR~RootGR, data = GR)
+shap5 <- shapiro.test(model5[["residuals"]]) # => p = 8.075e-07
+shap5
+```
+# 
+#### **Spearman correlation and plot**
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, fig.cap = "Figure 8.  Correlation between Frond and Root growth rate. The value of R is very close to 1, which means there is a strong correlation. Also, p is less than 0.01, which means that the correlation is statistically significant. This coordinated growth  is explained with the fact that the root system depends on the shoot for organic nutrients and the shoot depends on the roots for getting water, minerals and mechanical support."}
+library("ggpubr")
+ggscatter(GR, x = "RootGR", y = "FrondGR", 
+          add = "reg.line", conf.int = TRUE, color = 4, 
+          cor.coef = TRUE, cor.method = "spearman",
+          xlab = "Root Growth (mm d^-1)", ylab = "Frond Growth (mm d^-1)",
+          title = "Correlation between Frond and Root Growth")+
+          theme(plot.title = element_text(hjust = 0.5))
+
+```
+
+###  **5. Discussion**
+
+**Growth Rate**
+
+Both Frond and Root Growth Rates were significantly affected by all treatments. Overall, the reduction in Root length was higher than in Frond area, in comparison to the control, when applying any treatment.
+
+As for the effects in Frond, in the treatment with Cu, growth rate was negative due to the development of chlorosis and thus the decrease of photosynthetic activity. The 100-DOM AG and AN treatments diminished the development of the frond area in comparison to the control, however, when applied in the presence of Cu, they increased the growth rate in comparison to Cu alone.
+
+As for the effects in Roots, there was no growth for the treatment with just Cu or for the one with Cu + 10- DOM AG. Cu + 10-DOM AN did show an improvement in relation to only Cu. Also, both 100-DOM AG and AN, when applied in the presence of Cu, increased the root growth significantly. 
+ 
+
+**Copper accumulation**
+
+Results showed that higher concentrations of copper in Cu alone treatment were absorbed by _L.minor_. Also, higher accumulation rates of Cu were recovered on the DOM  with 100mg/L concentration of both AN and AG mixed with Cu. While, both treatments having Cu+10mg/L of DOM’s showed low Cu accumulation rate than of Cu and Cu+10mg/L DOM’s treatments.
+
+**H2O2 concentration and Lipids peroxidation**
+
+Cu containing treatments: Cu; Cu+10DOC AN; Cu+100DOC AN causes significant impact on hydrogen concentration (H2O2) as compared to the control.  DOM of _A.negundo_ alone has no significant different as of with control. 
+The results for _A.glutinusa_ showed quite same distribution as _A. negundo_  But _A. negundo_ causes slightly more stress to _L. Minor_ than _Alnus glutinusa_. This imply that the leaf litter extracts alone of both species does not give significant threat on H202 peroxidation level in L.minor.
+
+
+Lipid peroxidation, on the other hand, is oxidative damage that affects cellular membranes, lipoproteins, and other molecules that contain lipids.
+The results show that putting pure Cu increases the MDA concentration. In both plant species, increase in concentration of DOM in the mixture of Cu increases the lipid peroxidation. Adding only leaf extracts doesn't make a significant difference from the control.
+
+
+###  **6. Conclusions**
+
+
+There is a reduction of Cu accumulation in _L. minor_ when Cu is combined with _A. glutinosa_ and _A. negundo_ extracts at certain concentration(10mg/L). However, as the concentration increases, Cu accumulation gets higher to the extent that it has no significant difference in comparison to the Cu treatment.
+
+The native species _A. glutinosa_ showed more beneficial action in the oxidative stress of L. minor than the invasive species _A. negundo_ . At lower concentration, _A. glutinosa_, when combined with Cu,  was able to suppress and Lipid peroxidation products in  L.minor. 
+
+There is a strong correlation of frond area and root growth when exposed to the different treatments. Pure Cu concentration found significant reduction on morphophysiological parameters. Cu in combination with _A. glutinosa_ and _A. negundo_ extracts leads to a smooth increase on Frond area and Root length with respect to Cu alone.
+
+
+
+
+###  **7. References**
+
+* De Vos CHR, Schat H, De Waal MAM, Vooijs R, Ernst WHO. 1991. Increased resistance to copper-induced damage of the root cell plasmalemma in copper tolerant Silene cucubalus. Plant Physiology 82:523-528
+
+* Halliwell B, Gutteridge JMC. 1984. Oxygen toxicity, oxygen radicals, transition metals and disease. Biochemical Journal 219:1-14
+
+* Karitonas R, Jurkonienė S, Sadauskas K, Vaičiūnienė J, Manusadžianas L. 2020. Modifying effects of leaf litter extracts from invasive versus native tree species on copper-induced responses in Lemna minor. PeerJ 8:e9444 https://doi.org/10.7717/peerj.9444
+
+* Krevš A, Darginavičienė J, Gylytė B, Grigutytė R, Jurkonienė S, Karitonas R, Kučinskiene A, Pakalnis R, Sadauskas K, Vitkus R+1 more. 2013. Ecotoxicological effects evoked in hydrophytes by leachates of invasive Acer negundo and autochthonous Alnus glutinosa fallen off leaves during their microbial decomposition. Environmental Pollution 173:75-84
+
+* Manusadžianas L, Darginavičienė J, Gylytė B, Jurkonienė S, Krevš A, Kučinskienė A, Mačkinaite R, Pakalnis R, Sadauskas K, Sendžikaitė J+1 more. 2014. Ecotoxicity effects triggered in aquatic organisms by invasive Acer negundo and native Alnus glutinosa leaf leachates obtained in the process of aerobic decomposition. Science of the Total Environment 496:35-44
+
+* Thomas G, Stärk HJ, Wellenreuther G, Dickinson BC, Küpper H. 2013. Effects of nanomolar copper on water plants –comparison of biochemical and biophysical mechanisms of deficiency and sublethal toxicity under environmentally relevant conditions. Aquatic Toxicology 140–141:27-36
+
+* Weckx JEJ, Clijsters HMM. 1996. Oxidative damage and defense mechanisms in primary leaves of Phaseolus vulgaris as a result of root assimilation of toxic amounts of copper. Physiologia Plantarum 96:506-512
+
+* Xia J, Tian Q. 2009. Early stage toxicity of excess copper to photosystem II of Chlorella. pyrenoidosa—OJIP chlorophyll a fluorescence analysis. Journal of Environmental Sciences 21:1569-1574
+
